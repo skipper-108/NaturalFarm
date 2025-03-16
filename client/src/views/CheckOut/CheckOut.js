@@ -93,7 +93,7 @@ const Checkout = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5002/orders", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -232,7 +232,7 @@ const Checkout = () => {
                     <div key={item._id} className="order-item">
                       <div className="item-info">
                         <img
-                          src={`http://localhost:5002${item.images}`}
+                          src={`${process.env.REACT_APP_API_URL}${item.images}`}
                           alt={item.name}
                           className="item-image"
                         />

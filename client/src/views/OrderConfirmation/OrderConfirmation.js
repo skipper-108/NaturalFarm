@@ -58,7 +58,7 @@ const OrderConfirmation = () => {
         // If localStorage doesn't have the data or doesn't match, fetch from API
         console.log("Fetching order details from API");
         const response = await fetch(
-          `http://localhost:5002/orders/${orderId}`,
+          `${process.env.REACT_APP_API_URL}/orders/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -174,7 +174,7 @@ const OrderConfirmation = () => {
 
       // Call your backend to initialize PhonePe payment
       const response = await fetch(
-        "http://localhost:5002/payments/initiate-phonepe",
+        `${process.env.REACT_APP_API_URL}/payments/initiate-phonepe`,
         {
           method: "POST",
           headers: {
@@ -216,7 +216,7 @@ const OrderConfirmation = () => {
 
       // Verify the payment with your backend
       const verifyResponse = await fetch(
-        "http://localhost:5002/payments/verify-phonepe",
+        `${process.env.REACT_APP_API_URL}/payments/verify-phonepe`,
         {
           method: "POST",
           headers: {
@@ -282,7 +282,7 @@ const OrderConfirmation = () => {
       console.log("Updating order status with data:", paymentData);
 
       const updateResponse = await fetch(
-        `http://localhost:5002/orders/${orderId}`,
+        `${process.env.REACT_APP_API_URL}/orders/${orderId}`,
         {
           method: "PUT",
           headers: {

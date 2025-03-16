@@ -13,7 +13,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5002/products");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
         const result = await response.json();
         console.log("API Response:", result); // Debugging
 

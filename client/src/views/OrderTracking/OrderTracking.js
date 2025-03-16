@@ -36,7 +36,7 @@ const OrderTracking = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5002/orders/tracking/${orderId}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/orders/tracking/${orderId}`, {
           headers: { 
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
